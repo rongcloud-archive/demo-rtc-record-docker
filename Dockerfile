@@ -4,10 +4,8 @@ LABEL maintainer="RongCloud"
 
 # http hook tcp port
 EXPOSE 80
-# rtp streaming udp port range
-EXPOSE 30000-30100/udp
 
-ENV VERSION 3.0.4
+ENV VERSION 3.0.5
 
 ENV APPKEY ""
 ENV SECRET ""
@@ -26,8 +24,7 @@ ENV AUDIO_FORMAT "aac"
 ENV VIDEO_QUALITY 1
 
 RUN apt-get update; \
-	apt-get install -y --no-install-recommends \
-	supervisor
+	apt-get install -y --no-install-recommends supervisor
 
 ADD ./rongrtc-record-*.tar.gz /opt/
 ADD ./supervisord/* /etc/supervisor/conf.d/
