@@ -1,11 +1,11 @@
-FROM openjdk:8
+FROM ubuntu:18.04
 
 LABEL maintainer="RongCloud"
 
 # http hook tcp port
 EXPOSE 80
 
-ENV VERSION 3.0.10
+ENV VERSION 3.0.11
 
 ENV APPKEY ""
 ENV SECRET ""
@@ -34,7 +34,9 @@ ENV LOG_LEVEL 4
 ENV VIDEO_RESOLUTION "640*480"
 
 RUN apt-get update; \
-	apt-get install -y --no-install-recommends supervisor
+	apt-get install -y --no-install-recommends \
+	supervisor wget openjdk-8-jdk; \
+	apt-get clean
 
 ADD ./rongrtc-record-*.tar.gz /opt/
 ADD ./supervisord/* /etc/supervisor/conf.d/
