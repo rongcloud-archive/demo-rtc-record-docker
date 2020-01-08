@@ -33,6 +33,11 @@ ENV LOG_LEVEL 4
 #480*320/320*480/640*480/480*640/1280*720/720*1280
 ENV VIDEO_RESOLUTION "640*480"
 
+#视频码率级别 0: 较低，默认，width*height/1000  1:较高
+ENV BITRATE_LEVEL 0
+
+ADD ./sources.list  /etc/apt/
+
 RUN apt-get update; \
 	apt-get install -y --no-install-recommends \
 	supervisor wget openjdk-8-jdk; \
