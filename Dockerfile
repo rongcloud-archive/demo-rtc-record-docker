@@ -5,7 +5,7 @@ LABEL maintainer="RongCloud"
 # http hook tcp port
 EXPOSE 80
 
-ENV VERSION 3.0.13
+ENV VERSION 3.0.14
 
 ENV APPKEY ""
 ENV SECRET ""
