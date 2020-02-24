@@ -5,7 +5,7 @@ LABEL maintainer="RongCloud"
 # http hook tcp port
 EXPOSE 80
 
-ENV VERSION 3.0.14
+ENV VERSION 3.0.15
 
 ENV APPKEY ""
 ENV SECRET ""
@@ -43,7 +43,7 @@ RUN apt-get update; \
 	supervisor wget openjdk-8-jdk; \
 	apt-get clean
 
-ADD ./rongrtc-record-*.tar.gz /opt/
+ADD ./rongrtc-record /opt/rongrtc-record
 ADD ./supervisord/* /etc/supervisor/conf.d/
 
 VOLUME ["/data/record", "/var/log/supervisor"]
